@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="hello_blank_fragment">Welcome to the Quiz!</string>
+    <string name="q1">Baikal lake is the deepest lake in the world</string>
+    <string name="q2">It is 78% nitrogen in the air</string>
+    <string name="q3">Water covers 50% of the Earth\'s surface</string>
+    <string name="q4">The rainbow has 8 colors</string>
+    <string name="q5">The stars are not the brightest objects in the Universe</string>
+    <string name="q6">Canberra is the capital of Australia</string>
+    <string name="q7">Atlantic ocean is the deepest ocean on the Earth</string>
+    <string name="q8">Nissan Skyline GT-R is originally equipped with a 3.0-liter turbo engine</string>
+    <string name="q9">Apple Maps is a failed Apple project </string>
+    <string name="q10">The population of the Earth is more than 8 billion people </string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="question">Question</string>
+    <string name="start">START</string>
+    <string name="true_btn">TRUE</string>
+    <string name="false_btn">FALSE</string>
+</resources>

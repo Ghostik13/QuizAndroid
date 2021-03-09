@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Викторина</string>
+    <string name="hello_blank_fragment">Добро пожаловать на Викторину!</string>
+    <string name="q1">Озеро Байкал - самое глубокое в мире</string>
+    <string name="q2">Воздух на 78% состоит из азота</string>
+    <string name="q3">50% планеты Земля занимает вода</string>
+    <string name="q4">В радуге 8 цветов</string>
+    <string name="q5">Звезды - не самые яркие объекты во вселенной</string>
+    <string name="q6">Канберра - столица Австралии</string>
+    <string name="q7">Самый глубокий океан на Земле - Атлантический</string>
+    <string name="q8">Nissan Skyline GT-R изначально оснащается турбированным двигателем объемом 3.0 литра</string>
+    <string name="q9">Apple Maps является неудачным проектом компании Apple</string>
+    <string name="q10">Население Земли больше 8 миллиардов человек</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="question">Вопрос</string>
+    <string name="start">НАЧАТЬ</string>
+    <string name="true_btn">ДА</string>
+    <string name="false_btn">НЕТ</string>
+</resources>
