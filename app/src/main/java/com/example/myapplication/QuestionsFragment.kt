@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.content.ContextCompat.getColor
 
 private const val CORRECT_ANSWER = "param1"
 private const val TEXT = "param2"

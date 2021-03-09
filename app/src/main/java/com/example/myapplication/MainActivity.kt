@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity(), MyInterface {
     }
 
     override fun answerQuestion(result: Boolean) {
-        val qf = mQuestionsFragment[currentIndex]
         val getBundleArgs = mQuestionsFragment[currentIndex].arguments
         val booleanArg = getBundleArgs?.getBoolean("param1")
         if(result==booleanArg){
