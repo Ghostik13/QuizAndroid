@@ -17,4 +17,6 @@
     <string name="start">НАЧАТЬ</string>
     <string name="true_btn">ДА</string>
     <string name="false_btn">НЕТ</string>
+    <string name="correct">Верно!</string>
+    <string name="incorrect">Неверно!</string>
 </resources>

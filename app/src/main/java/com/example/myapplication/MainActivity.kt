@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
@@ -71,10 +72,13 @@ class MainActivity : AppCompatActivity(), MyInterface {
         val booleanArg = getBundleArgs?.getBoolean("param1")
         if(result==booleanArg){
             trueAnswers++
+            Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT).show()
         }
+        else Toast.makeText(this, R.string.incorrect, Toast.LENGTH_SHORT).show()
         if(currentIndex==mQuestionsFragment.size-1){
             finishQuestions()
-        } else {
+        }
+        else {
             currentIndex=(currentIndex+1)
             replaceFragment(mQuestionsFragment[currentIndex])
         }

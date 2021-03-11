@@ -17,4 +17,6 @@
     <string name="start">START</string>
     <string name="true_btn">TRUE</string>
     <string name="false_btn">FALSE</string>
+    <string name="correct">Верно!</string>
+    <string name="incorrect">Неверно!</string>
 </resources>
