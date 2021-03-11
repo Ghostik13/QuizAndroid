@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getColor
 
 private const val CORRECT_ANSWER = "param1"
 private const val TEXT = "param2"
@@ -38,11 +39,35 @@ class QuestionsFragment() : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        view?.findViewById<Button>(R.id.button_yes)?.setOnClickListener {
-            (requireActivity() as MyInterface).answerQuestion( true)
+        val checkTrue = (requireActivity() as MyInterface).checkAnswer(true)
+        val checkFalse = (requireActivity() as MyInterface).checkAnswer(false)
+        val qfragment = view?.findViewById<View>(R.id.question_fragment)
+        view?.findViewById<View>(R.id.button_yes)?.setOnClickListener {
+            setBackground(checkTrue)
+            qfragment?.setOnClickListener {
+                (requireActivity() as MyInterface).answerQuestion(true)
+            }
         }
-        view?.findViewById<Button>(R.id.button_no)?.setOnClickListener {
-            (requireActivity() as MyInterface).answerQuestion(false)
+        view?.findViewById<View>(R.id.button_no)?.setOnClickListener {
+            setBackground(checkFalse)
+            qfragment?.setOnClickListener {
+                (requireActivity() as MyInterface).answerQuestion(false)
+            }
+        }
+    }
+
+    @Suppress("DEPRECATION")
+    private fun setBackground(check: Boolean) {
+        val resultView = view?.findViewById<TextView>(R.id.result)
+        val qfragment = view?.findViewById<View>(R.id.question_fragment)
+        view?.findViewById<View>(R.id.button_yes)?.visibility=View.GONE
+        view?.findViewById<View>(R.id.button_no)?.visibility=View.GONE
+        if (check) {
+            resultView?.text = "Верно!"
+            qfragment?.setBackgroundColor(resources.getColor(R.color.light_green))
+        } else if (!check) {
+            resultView?.text = "Неверно!"
+            qfragment?.setBackgroundColor(resources.getColor(R.color.light_red))
         }
     }
 

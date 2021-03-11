@@ -9,21 +9,22 @@ interface MyInterface {
     fun startQuestions()
     fun finishQuestions()
     fun answerQuestion(result: Boolean)
+    fun checkAnswer(result: Boolean): Boolean
 }
 
 class MainActivity : AppCompatActivity(), MyInterface {
 
     private val mQuestionsFragment = arrayOf(
-        QuestionsFragment.newInstance(true, "Озеро Байкал - самое глубокое в мире"),
-        QuestionsFragment.newInstance(true, "Воздух на 78% состоит из азота"),
-        QuestionsFragment.newInstance(false, "50% планеты Земля занимает вода"),
-        QuestionsFragment.newInstance(false, "В радуге 8 цветов"),
-        QuestionsFragment.newInstance(true, "Звезды - не самые яркие объекты во вселенной"),
-        QuestionsFragment.newInstance(true, "Канберра - столица Австралии"),
-        QuestionsFragment.newInstance(false, "Самый глубокий океан на Земле - Атлантический"),
-        QuestionsFragment.newInstance(false, "Nissan Skyline GT-R изначально оснащается турбированным двигателем объемом 3.0 литра"),
-        QuestionsFragment.newInstance(true, "Apple Maps является неудачным проектом компании Apple"),
-        QuestionsFragment.newInstance(false, "Население Земли больше 8 миллиардов человек")
+        QuestionsFragment.newInstance(true, "Вопрос №1:\nОзеро Байкал - самое глубокое в мире"),
+        QuestionsFragment.newInstance(true, "Вопрос №2:\nВоздух на 78% состоит из азота"),
+        QuestionsFragment.newInstance(false, "Вопрос №3:\n50% планеты Земля занимает вода"),
+        QuestionsFragment.newInstance(false, "Вопрос №4:\nВ радуге 8 цветов"),
+        QuestionsFragment.newInstance(true, "Вопрос №5:\nЗвезды - не самые яркие объекты во вселенной"),
+        QuestionsFragment.newInstance(true, "Вопрос №6:\nКанберра - столица Австралии"),
+        QuestionsFragment.newInstance(false, "Вопрос №7:\nСамый глубокий океан на Земле - Атлантический"),
+        QuestionsFragment.newInstance(false, "Вопрос №8:\nNissan Skyline GT-R оснащается турбированным двигателем"),
+        QuestionsFragment.newInstance(true, "Вопрос №9:\nApple Maps является неудачным проектом компании Apple"),
+        QuestionsFragment.newInstance(false, "Вопрос №10:\nНаселение Земли больше 8 миллиардов человек")
     )
 
     private var currentIndex = 0
@@ -68,13 +69,7 @@ class MainActivity : AppCompatActivity(), MyInterface {
     }
 
     override fun answerQuestion(result: Boolean) {
-        val getBundleArgs = mQuestionsFragment[currentIndex].arguments
-        val booleanArg = getBundleArgs?.getBoolean("param1")
-        if(result==booleanArg){
-            trueAnswers++
-            Toast.makeText(this, R.string.correct, Toast.LENGTH_SHORT).show()
-        }
-        else Toast.makeText(this, R.string.incorrect, Toast.LENGTH_SHORT).show()
+        if(checkAnswer(result)) trueAnswers++
         if(currentIndex==mQuestionsFragment.size-1){
             finishQuestions()
         }
@@ -82,5 +77,11 @@ class MainActivity : AppCompatActivity(), MyInterface {
             currentIndex=(currentIndex+1)
             replaceFragment(mQuestionsFragment[currentIndex])
         }
+    }
+
+    override fun checkAnswer (result: Boolean): Boolean{
+        val getBundleArgs = mQuestionsFragment[currentIndex].arguments
+        val booleanArg = getBundleArgs?.getBoolean("param1")
+        return result==booleanArg
     }
 }
