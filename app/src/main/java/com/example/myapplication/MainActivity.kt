@@ -1,9 +1,10 @@
 package com.example.myapplication
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import kotlin.random.Random.Default.nextInt
+
 
 interface MyInterface {
     fun startQuestions()
@@ -14,21 +15,31 @@ interface MyInterface {
 
 class MainActivity : AppCompatActivity(), MyInterface {
 
-    private val mQuestionsFragment = arrayOf(
-        QuestionsFragment.newInstance(true, "Вопрос №1:\nОзеро Байкал - самое глубокое в мире"),
-        QuestionsFragment.newInstance(true, "Вопрос №2:\nВоздух на 78% состоит из азота"),
-        QuestionsFragment.newInstance(false, "Вопрос №3:\n50% планеты Земля занимает вода"),
-        QuestionsFragment.newInstance(false, "Вопрос №4:\nВ радуге 8 цветов"),
-        QuestionsFragment.newInstance(true, "Вопрос №5:\nЗвезды - не самые яркие объекты во вселенной"),
-        QuestionsFragment.newInstance(true, "Вопрос №6:\nКанберра - столица Австралии"),
-        QuestionsFragment.newInstance(false, "Вопрос №7:\nСамый глубокий океан на Земле - Атлантический"),
-        QuestionsFragment.newInstance(false, "Вопрос №8:\nNissan Skyline GT-R оснащается турбированным двигателем"),
-        QuestionsFragment.newInstance(true, "Вопрос №9:\nApple Maps является неудачным проектом компании Apple"),
-        QuestionsFragment.newInstance(false, "Вопрос №10:\nНаселение Земли больше 8 миллиардов человек")
-    )
-
     private var currentIndex = 0
     private var trueAnswers = 0
+
+    private val mQuestionsFragment = arrayOf(
+        QuestionsFragment.newInstance(true, "Озеро Байкал - самое глубокое в мире"),
+        QuestionsFragment.newInstance(true, "Воздух на 78% состоит из азота"),
+        QuestionsFragment.newInstance(false, "50% планеты Земля занимает вода"),
+        QuestionsFragment.newInstance(false, "В радуге 8 цветов"),
+        QuestionsFragment.newInstance(true, "Звезды - не самые яркие объекты во вселенной"),
+        QuestionsFragment.newInstance(true, "Канберра - столица Австралии"),
+        QuestionsFragment.newInstance(false, "Самый глубокий океан на Земле - Атлантический"),
+        QuestionsFragment.newInstance(false, "Nissan Skyline GT-R оснащается турбированным двигателем"),
+        QuestionsFragment.newInstance(true, "Apple Maps является неудачным проектом компании Apple"),
+        QuestionsFragment.newInstance(false, "Население Земли больше 8 миллиардов человек")
+    )
+
+
+    private fun shuffle(array: Array<QuestionsFragment>) {
+        for (i in array.size - 1 downTo 1) {
+            val index = nextInt(i + 1)
+            val a = array[index]
+            array[index] = array[i]
+            array[i] = a
+        }
+    }
 
     private val KEY_INDEX1="index1"
     private val KEY_INDEX2="index2"
@@ -48,6 +59,7 @@ class MainActivity : AppCompatActivity(), MyInterface {
             replaceFragment(mQuestionsFragment[currentIndex])
         }
         else initFragment()
+        shuffle(mQuestionsFragment)
     }
 
     private fun initFragment() {
@@ -74,7 +86,7 @@ class MainActivity : AppCompatActivity(), MyInterface {
             finishQuestions()
         }
         else {
-            currentIndex=(currentIndex+1)
+            currentIndex+=1
             replaceFragment(mQuestionsFragment[currentIndex])
         }
     }
