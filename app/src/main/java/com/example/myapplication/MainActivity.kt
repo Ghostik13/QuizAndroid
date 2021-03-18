@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import kotlin.random.Random.Default.nextInt
@@ -28,7 +29,15 @@ class MainActivity : AppCompatActivity(), MyInterface {
         QuestionsFragment.newInstance(false, "Самый глубокий океан на Земле - Атлантический"),
         QuestionsFragment.newInstance(false, "Nissan Skyline GT-R оснащается турбированным двигателем"),
         QuestionsFragment.newInstance(true, "Apple Maps является неудачным проектом компании Apple"),
-        QuestionsFragment.newInstance(false, "Население Земли больше 8 миллиардов человек")
+        QuestionsFragment.newInstance(true, "Самая низкая возможная температура: -275 градуса по Цельсию"),
+        QuestionsFragment.newInstance(false, "Ледники Антарктиды ночью могут достигать такой температуры"),
+        QuestionsFragment.newInstance(false, "Самая глубокая шахта в мире не превышает 4х километров"),
+        QuestionsFragment.newInstance(true, "Ядро Земли находится в жидком состоянии"),
+        QuestionsFragment.newInstance(false, "Самая близкая галактика к нашей - Млечный путь"),
+        QuestionsFragment.newInstance(true, "Созвездие Пояс Ореона состоит из 3х звезд"),
+        QuestionsFragment.newInstance(false, "Вторая мировая война началась в 1941 году"),
+        QuestionsFragment.newInstance(true, "И закончилась в 1945 году"),
+        QuestionsFragment.newInstance(true, "В оригинальной саге Звездные Войны 3 эпизода")
     )
 
 
